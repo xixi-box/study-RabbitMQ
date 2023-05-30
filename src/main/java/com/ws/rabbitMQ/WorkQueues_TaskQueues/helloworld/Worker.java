@@ -1,4 +1,4 @@
-package com.ws.rabbitMQ.WorkQueues_TaskQueues;
+package com.ws.rabbitMQ.WorkQueues_TaskQueues.helloworld;
 
 import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
@@ -37,7 +37,8 @@ public class Worker {
 
         // 这个参数后面会说, 详见2.3
 
-        boolean autoAck = false;
+        boolean autoAck = false;//代表自动确认消息 true是手应答，false是自动应答
+
 
         // 管道接收消息
         channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, cancelCallback);

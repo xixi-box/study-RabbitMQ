@@ -1,4 +1,4 @@
-package com.ws.rabbitMQ.WorkQueues_TaskQueues;
+package com.ws.rabbitMQ.WorkQueues_TaskQueues.helloworld;
 
 import com.rabbitmq.client.Channel;
 import com.ws.rabbitMQ.utils.RabbitUtil;
