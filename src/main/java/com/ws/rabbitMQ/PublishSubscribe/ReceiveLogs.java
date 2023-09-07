@@ -6,7 +6,7 @@ import com.rabbitmq.client.DeliverCallback;
 import com.ws.rabbitMQ.utils.RabbitUtil;
 
 /**
- * 发送者
+ * 接收者
  */
 public class ReceiveLogs {
     private static final String EXCHANGE_NAME = "logs";

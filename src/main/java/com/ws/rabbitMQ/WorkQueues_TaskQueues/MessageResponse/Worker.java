@@ -18,7 +18,6 @@ public class Worker {
         // 平均分配
         channel.basicQos(1);
 
-
         // 接收到信息回调接口，目的是当接收到一条信息时，进行一些操作，比如可以在控制台里打印出来，以告诉程序员收到了信息。
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");

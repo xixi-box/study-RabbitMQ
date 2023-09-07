@@ -12,6 +12,7 @@ public class Worker {
     public static void main(String[] argv) throws Exception {
         // 建立连接和管道
         Channel channel = RabbitUtil.getChannel();
+
         // 声明从哪个队列接受消息
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] 等待消息. To exit press CTRL+C");
@@ -35,10 +36,9 @@ public class Worker {
             System.out.println("消息消费被中断");
         };
 
-        // 这个参数后面会说, 详见2.3
+        // 这个参数后面会说
 
-        boolean autoAck = false;//代表自动确认消息 true是手应答，false是自动应答
-
+        boolean autoAck = true;//代表自动确认消息 true是自动确认，false是手动确认
 
         // 管道接收消息
         channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, cancelCallback);

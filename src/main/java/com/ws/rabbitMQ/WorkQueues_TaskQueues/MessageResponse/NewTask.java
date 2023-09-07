@@ -13,11 +13,12 @@ public class NewTask {
         // 建立连接和管道
         Channel channel = RabbitUtil.getChannel();
         // 参数一：声明我们要发送的队列是谁（QUEUE_NAME），其他参数这里先不用关注
-        channel.queueDeclare(QUEUE_NAME, true, false, false, null);
+        //持久化
+        boolean durable = true;
+        channel.queueDeclare(QUEUE_NAME, durable, false, false, null);
         // 发送消息
         String message = new Scanner(System.in).nextLine();
         //String message = String.join(" ", argv); // ***主要改了这里***
-        //MessageProperties.PERSISTENT_TEXT_PLAIN消息持久化
         channel.basicPublish("", QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
         System.out.println(" [x] 发送消息 '" + message + "'");
     }
